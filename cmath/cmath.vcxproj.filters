@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Primitives">
+      <UniqueIdentifier>{9bccc50e-1ba5-4dec-8ed7-5dde1cd41b2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\Intersections">
+      <UniqueIdentifier>{4f991254-029c-4b46-9be6-0773bee920fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Color">
+      <UniqueIdentifier>{1f6ddc1a-5d71-4ddd-990e-74ea4124cb3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Linear Algebra">
+      <UniqueIdentifier>{bb99a335-8b55-4814-82a1-2caa1f2dafe3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="ray.cuh">
+      <Filter>Primitives</Filter>
+    </CudaCompile>
+    <CudaCompile Include="sphere.cuh">
+      <Filter>Primitives</Filter>
+    </CudaCompile>
+    <CudaCompile Include="intersections.cuh">
+      <Filter>Primitives\Intersections</Filter>
+    </CudaCompile>
+    <CudaCompile Include="vector3.cuh">
+      <Filter>Linear Algebra</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cmath_api.h" />
+    <ClInclude Include="color.cuh">
+      <Filter>Color</Filter>
+    </ClInclude>
+    <ClInclude Include="cmath.cuh" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="matrix4.cuh">
+      <Filter>Linear Algebra</Filter>
+    </None>
+    <None Include="matrix3.cuh">
+      <Filter>Linear Algebra</Filter>
+    </None>
+    <None Include="plane.cuh">
+      <Filter>Primitives</Filter>
+    </None>
+  </ItemGroup>
+</Project>

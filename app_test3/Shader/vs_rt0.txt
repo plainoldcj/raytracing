@@ -1,0 +1,36 @@
+/*
+solution:	raytracing
+project:	rtengine1
+file:		vs_rt0.txt
+author:		cj
+*/
+
+uniform mat4 uniInvWorldMat;
+uniform vec3 uniLightPos;
+uniform int uniFixedLight;
+uniform int uniPerspective;
+
+varying vec3 varEyePos;
+varying vec3 varViewDir;
+varying vec3 varLightPos;
+
+const float viewDistance = 5.0;
+
+void main() {
+	
+	if(0 < uniPerspective) {
+		varViewDir = normalize(vec3(uniInvWorldMat * vec4(gl_MultiTexCoord0.st, -viewDistance, 1.0)));
+		varEyePos = vec3(uniInvWorldMat * vec4(0.0, 0.0, viewDistance, 1.0));
+	} else {
+		varEyePos = vec3(uniInvWorldMat * vec4(gl_MultiTexCoord0.st, viewDistance, 1.0));
+		varViewDir = vec3(uniInvWorldMat * vec4(0.0, 0.0, -1.0, 1.0));
+	}
+
+	if(0 < uniFixedLight) {
+		varLightPos = vec3(uniInvWorldMat * vec4(uniLightPos, 1.0));
+	} else {
+		varLightPos = uniLightPos;
+	}
+
+	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+}

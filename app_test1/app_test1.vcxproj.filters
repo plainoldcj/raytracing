@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="app_test1.cpp" />
+    <ClCompile Include="window.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="sphere.cpp">
+      <Filter>Scene\Entity\Sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="world.cpp">
+      <Filter>Scene\World</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Window">
+      <UniqueIdentifier>{15a99cae-959e-4963-b6a8-728159beeedd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{027169f3-86b5-435a-963b-cb9cfb739024}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Entity">
+      <UniqueIdentifier>{5a9d4638-f896-443a-887f-b73acaebe0a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Entity\Sphere">
+      <UniqueIdentifier>{136961b3-8066-45e2-ade9-230359153f7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\World">
+      <UniqueIdentifier>{b473f82c-4ca7-4da9-90d0-ccde5e9e4d59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{78e3e8d0-3dc4-46d0-8e48-bb29183d43f9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="window.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="sphere.h">
+      <Filter>Scene\Entity\Sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>Scene\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="world.h">
+      <Filter>Scene\World</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

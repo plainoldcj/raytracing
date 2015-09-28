@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="math.h" />
+    <ClInclude Include="math_inl.h" />
+    <ClInclude Include="matrix3.h">
+      <Filter>Matrix3</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix4.h">
+      <Filter>Matrix4</Filter>
+    </ClInclude>
+    <ClInclude Include="vector3.h">
+      <Filter>Vector3</Filter>
+    </ClInclude>
+    <ClInclude Include="vector3_op_inl.h">
+      <Filter>Vector3</Filter>
+    </ClInclude>
+    <ClInclude Include="vector3_mem_inl.h">
+      <Filter>Vector3</Filter>
+    </ClInclude>
+    <ClInclude Include="sphere.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="ray.h">
+      <Filter>Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="intersections.h">
+      <Filter>Primitives\Intersections</Filter>
+    </ClInclude>
+    <ClInclude Include="dim2.h">
+      <Filter>Dim2</Filter>
+    </ClInclude>
+    <ClInclude Include="dim2_inl.h">
+      <Filter>Dim2</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="math.cpp" />
+    <ClCompile Include="matrix3_op.cpp">
+      <Filter>Matrix3</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix3_mem.cpp">
+      <Filter>Matrix3</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix4_op.cpp">
+      <Filter>Matrix4</Filter>
+    </ClCompile>
+    <ClCompile Include="matrix4_mem.cpp">
+      <Filter>Matrix4</Filter>
+    </ClCompile>
+    <ClCompile Include="vector3_mem.cpp">
+      <Filter>Vector3</Filter>
+    </ClCompile>
+    <ClCompile Include="vector3_op.cpp">
+      <Filter>Vector3</Filter>
+    </ClCompile>
+    <ClCompile Include="is_ray_sphere.cpp">
+      <Filter>Primitives\Intersections</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Vector3">
+      <UniqueIdentifier>{c46bf753-b9c8-473d-8c19-dcba8f5b46da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix3">
+      <UniqueIdentifier>{94b226c2-4ffb-45be-92d3-d1c8651a155f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix4">
+      <UniqueIdentifier>{55ecba7e-3a2e-4a46-b4b2-0cf23aee4138}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives">
+      <UniqueIdentifier>{2fa74954-5f00-44e0-8e8a-8a7e3bb2f949}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitives\Intersections">
+      <UniqueIdentifier>{0e861204-6f95-42fb-97d2-c346ed198e21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dim2">
+      <UniqueIdentifier>{47f32c13-13d8-42d2-af31-0d8e1981c845}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

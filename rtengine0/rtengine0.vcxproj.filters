@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="rtengine.h" />
+    <ClInclude Include="framebuffer.h">
+      <Filter>Output\Framebuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="imagewindow.h">
+      <Filter>Output\ImageWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>Scene\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="world.h">
+      <Filter>Scene\World</Filter>
+    </ClInclude>
+    <ClInclude Include="ent_sphere.h">
+      <Filter>Scene\Entity\Sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="color.h">
+      <Filter>Skin</Filter>
+    </ClInclude>
+    <ClInclude Include="skin.h">
+      <Filter>Skin</Filter>
+    </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>Shading</Filter>
+    </ClInclude>
+    <ClInclude Include="sh_default.h">
+      <Filter>Shading\Default Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="light.h">
+      <Filter>Scene\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="ill_pointlight.h">
+      <Filter>Scene\Light\Pointlight</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="raycaster.h">
+      <Filter>RayCaster</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Output">
+      <UniqueIdentifier>{f8d255b4-d63b-40a9-aeef-49eadad7401e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Output\ImageWindow">
+      <UniqueIdentifier>{68db1036-3937-4207-a70d-72bfc90d3a49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Output\Framebuffer">
+      <UniqueIdentifier>{bb140a50-67f5-4faa-bfae-c406f5b5e06a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{e38e65f3-358b-4d8e-906d-985b572d3936}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Entity">
+      <UniqueIdentifier>{9409f924-4990-48c6-842d-b1a464ddabf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\World">
+      <UniqueIdentifier>{1787f077-1344-443b-9681-c539e74d7cea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Entity\Sphere">
+      <UniqueIdentifier>{875a38b6-214f-4c20-98dc-83cf4b897e18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skin">
+      <UniqueIdentifier>{549ac8a1-a816-4e44-87c0-38983f689c24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shading">
+      <UniqueIdentifier>{2702aa90-ce48-4ea2-b869-d0c1b1af4840}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shading\Default Shader">
+      <UniqueIdentifier>{648f9bd2-6158-4d62-9741-d4aa29c8a8fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Light">
+      <UniqueIdentifier>{9368ef3d-e272-48d7-9c82-f111fa44d234}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Light\Pointlight">
+      <UniqueIdentifier>{c83557c4-ee00-4150-81cf-308304e6c0b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{161ddcbb-f8a2-43be-8658-4a8fffb1a16e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RayCaster">
+      <UniqueIdentifier>{fd5da70d-fc56-4cff-b250-83f520d09dd8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="framebuffer.cpp">
+      <Filter>Output\Framebuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="imagewindow.cpp">
+      <Filter>Output\ImageWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="rtengine.cpp" />
+    <ClCompile Include="world.cpp">
+      <Filter>Scene\World</Filter>
+    </ClCompile>
+    <ClCompile Include="ent_sphere.cpp">
+      <Filter>Scene\Entity\Sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="color.cpp">
+      <Filter>Skin</Filter>
+    </ClCompile>
+    <ClCompile Include="sh_default.cpp">
+      <Filter>Shading\Default Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="ill_pointlight.cpp">
+      <Filter>Scene\Light\Pointlight</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="raycaster.cpp">
+      <Filter>RayCaster</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

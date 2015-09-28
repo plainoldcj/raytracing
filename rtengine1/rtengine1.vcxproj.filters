@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Framebuffer">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Texture">
+      <UniqueIdentifier>{76af55ce-4ccd-44cb-9f40-ce1d6119be46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderbuffer">
+      <UniqueIdentifier>{6fda5f64-4928-4e76-bb72-4c1c99c657d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{b011ea27-4c1d-48e6-9ca1-f248f2304d8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Program">
+      <UniqueIdentifier>{580d1785-e176-4e42-b360-255897dd37b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{14f9adf1-9fb2-4f80-8929-cec91a2794dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Color">
+      <UniqueIdentifier>{7de3ba1b-b2a4-46d8-8263-3847cc5064a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{4033c362-5eab-4e7e-9cf8-683f382d2df4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\World">
+      <UniqueIdentifier>{531a6ac1-978d-40ad-ad52-c30e6cbc9399}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="framebuffer.cpp">
+      <Filter>Framebuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="renderbuffer.cpp">
+      <Filter>Renderbuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="program.cpp">
+      <Filter>Program</Filter>
+    </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="color.cpp">
+      <Filter>Color</Filter>
+    </ClCompile>
+    <ClCompile Include="world.cpp">
+      <Filter>Scene\World</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framebuffer.h">
+      <Filter>Framebuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="renderbuffer.h">
+      <Filter>Renderbuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="program.h">
+      <Filter>Program</Filter>
+    </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="color.h">
+      <Filter>Color</Filter>
+    </ClInclude>
+    <ClInclude Include="world.h">
+      <Filter>Scene\World</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

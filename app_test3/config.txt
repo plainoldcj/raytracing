@@ -1,0 +1,6 @@
+debug = 1
+depth = 5
+fixedlight = 1
+rwidth = 800
+rheight = 800
+perspective = 1

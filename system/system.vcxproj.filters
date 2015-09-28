@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="timer.cpp">
+      <Filter>Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="opengl.cpp">
+      <Filter>OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="extensions.cpp">
+      <Filter>OpenGL\Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="print.cpp">
+      <Filter>OpenGL\Print</Filter>
+    </ClCompile>
+    <ClCompile Include="glwindow.cpp">
+      <Filter>OpenGL\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="window.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="thread.cpp">
+      <Filter>Thread</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="timer.h">
+      <Filter>Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="glx.h">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="opengl.h">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="glext.h">
+      <Filter>OpenGL\Extensions\Extern</Filter>
+    </ClInclude>
+    <ClInclude Include="extensions.h">
+      <Filter>OpenGL\Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="print.h">
+      <Filter>OpenGL\Print</Filter>
+    </ClInclude>
+    <ClInclude Include="glwindow.h">
+      <Filter>OpenGL\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="window.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="loop.h" />
+    <ClInclude Include="thread.h">
+      <Filter>Thread</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Timer">
+      <UniqueIdentifier>{3c8e9f3e-7649-432c-95b2-3cd6da89a0fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGL">
+      <UniqueIdentifier>{433d5a32-774a-47b3-b7bb-7b5f6c91434a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGL\Extensions">
+      <UniqueIdentifier>{393f8f68-b06d-411d-8c93-93700145a17a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGL\Extensions\Extern">
+      <UniqueIdentifier>{2b2fd4db-bda7-4d71-8211-2b8f62e353ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGL\Print">
+      <UniqueIdentifier>{b0625bc7-6cc7-4e18-bd3b-8f4b6f100d5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGL\Window">
+      <UniqueIdentifier>{a856597a-2500-413f-ace0-280f652e1aa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{ef115547-1f37-4678-b545-dcecbbce5ca9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Thread">
+      <UniqueIdentifier>{b90e9f34-482d-4e71-943d-6a2c15f19dc2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

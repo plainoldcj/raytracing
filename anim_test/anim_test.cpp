@@ -1,0 +1,27 @@
+/*
+solution:	raytracing
+project:	anim_test
+file:		anim_test.cpp
+author:		cj
+*/
+
+#include <Windows.h>
+#include "../common/config.h"
+#include "../system/loop.h"
+#include "window.h"
+
+int WINAPI WinMain(HINSTANCE instance, HINSTANCE prevInstance, PSTR cmdLine, int showCmd) {
+	try {
+		COM::Config& config = COM::Config::Instance();
+		int width = config.Get("width", 800);
+		int height = config.Get("height", 800);
+
+		Window window(width, height);
+		SYS::EnterLoop(window);
+	} catch(std::exception&) {
+		MessageBox(NULL, TEXT("unhandled exception.\nview logfile for more information"),
+			TEXT("Im really sorry..."), MB_OK);
+		return -1;
+	}
+	return 0;
+}

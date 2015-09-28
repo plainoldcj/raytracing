@@ -1,0 +1,257 @@
+/*
+solution:	raytracing
+project:	rtengine1
+file:		vs_rt0.txt
+author:		cj
+*/
+
+uniform int uniDepth;
+uniform int uniNumSpheres;
+uniform sampler2D uniSphereGeometrySampler;
+uniform sampler2D uniSphereColorSampler;
+uniform float uniLightConstantAttenuation;
+uniform float uniLightLinearAttenuation;
+uniform float uniLightQuadricAttenuation;
+
+varying vec3 varEyePos;
+varying vec3 varViewDir;
+varying vec3 varLightPos;
+
+const float eps = 0.01;
+
+// constant shading parameters
+const float sphereReflectivity = 0.3;
+const float floorReflectivity = 0.1;
+const float shininess = 5.0;
+const vec3 specularColor = vec3(1.0, 1.0, 1.0);
+const vec3 floorColor = vec3(0.5, 0.5, 0.5);
+
+struct Ray {
+	vec3 origin;
+	vec3 direction;
+};
+
+struct Sphere {
+	vec3 center;
+	float radius;
+};
+
+struct Plane {
+	vec3 normal;
+	float dist;
+};
+
+struct MInfo {
+	float dist;
+	vec3 where;
+	vec3 normal;
+};
+
+// constant geometry
+Plane floorPlane = Plane(vec3(0.0, 0.0, 1.0), -0.4);
+
+float AttenuationFactor(float dist, float constant, float linear, float quadric) {
+	return 1.0 / (constant + dist * linear + dist * dist * quadric);
+}
+
+/*
+bool IntersectAnalytically(Ray ray, Sphere sphere, out MInfo info) {
+	float B = 2.0 * dot(ray.direction, ray.origin - sphere.center);
+	vec3 d = ray.origin - sphere.center;
+	float C = dot(d, d) - sphere.radius * sphere.radius;
+	
+	float M = B * B - 4.0 * C;
+	if(0.0 > M) return false;
+	float D = sqrt(M);
+
+	float t0 = 0.5 * (-B - D);
+	if(t0 > 0.0) {
+		info.dist = t0;
+		info.where = ray.origin + t0 * ray.direction;
+		info.normal = normalize(info.where - sphere.center);
+		return true;
+	}
+
+	float t1 = 0.5 * (-B + D);
+	if(t1 > 0.0) {
+		info.dist = t1;
+		info.where = ray.origin + t1 * ray.direction;
+		info.normal = normalize(info.where - sphere.center);
+		return true;
+	}
+
+	return false;
+}
+*/
+
+bool IntersectAnalytically(Ray ray, Sphere sphere, out MInfo info) {
+	float r2 = sphere.radius * sphere.radius;
+	vec3 a = ray.origin - sphere.center;
+	float b = dot(ray.direction, a);
+	float c = r2 - dot(a, a) + b * b;
+	if(0.0 < c) {
+		float d = sqrt(c);
+				
+		bool hit = false;
+
+		float dist = min(-d - b, d - b);
+		if(0.0 < dist) hit = true;
+			
+		if(hit) {
+			info.where = ray.origin + dist * ray.direction;
+			info.normal = normalize(info.where - sphere.center);
+			info.dist = dist;
+		}
+
+		return hit;
+	}
+	return false;
+}
+
+bool IntersectAnalytically(Ray ray, Plane plane, out MInfo info) {
+	float D = dot(plane.normal, ray.direction);
+	if(D < 0.0) {
+		float t = (plane.dist - dot(plane.normal, ray.origin)) / D;
+		if(eps < t) {
+			info.dist = t;
+			info.where = ray.origin + t * ray.direction;
+			info.normal = plane.normal;
+			return true;
+		}
+	}
+
+	return false;
+}
+
+struct WInfo {
+	Ray ray;
+	MInfo minfo;
+	vec3 where;
+	vec3 normal;
+	vec3 color;
+	float reflectivity;
+};
+
+bool WorldIntersects(Ray ray, out WInfo info) {
+	bool hit = false;
+	float minDist = 0.0;
+	int minIndex = 0;
+	int i = 0;
+
+	MInfo minfo;
+
+	for(; i < uniNumSpheres; ++i) {
+		vec4 sphereData = texelFetch(uniSphereGeometrySampler, ivec2(i, 0), 0);
+		vec3 center = sphereData.rgb;
+		float radius = sphereData.a;
+		Sphere sphere = Sphere(center, radius);
+
+		if(IntersectAnalytically(ray, sphere, minfo)) {
+			float dist = minfo.dist;
+			if(abs(dist) > eps) {
+				if(!hit) {
+					hit = true;
+					minDist = dist;
+					minIndex = i;
+					info.minfo = minfo;
+				} else if(minDist > dist) {
+					minDist = dist;
+					minIndex = i;
+					info.minfo = minfo;
+				}
+			}
+		}
+	}
+
+	if(hit) {
+		info.color = vec3(texelFetch(uniSphereColorSampler, ivec2(minIndex, 0), 0));
+		info.reflectivity = sphereReflectivity;
+	}
+	
+	bool planeHit = false;
+	if(IntersectAnalytically(ray, floorPlane, minfo)) {
+		float dist = minfo.dist;
+		if(abs(dist) > eps) {
+			if(!hit) {
+				hit = true;
+				minDist = dist;
+				info.minfo = minfo;
+				planeHit = true;
+			} else if(minDist > dist) {
+				minDist = dist;
+				info.minfo = minfo;
+				planeHit = true;
+			}
+		}
+	}
+
+	if(planeHit) {
+		info.color = floorColor;
+		info.reflectivity = floorReflectivity;
+	}
+
+	if(hit) {
+		info.ray = ray;
+	}
+
+	return hit;
+}
+
+vec3 CastPrimary(Ray ray) {
+	WInfo info;
+
+	vec3 fragColor = vec3(0.0, 0.0, 0.0);
+	float falloff = 1.0;
+
+	vec3 eye = ray.origin;
+
+	for(int depth = 0; depth < uniDepth; ++depth) {
+		bool hit = WorldIntersects(ray, info);
+		vec3 where = info.minfo.where;
+		vec3 normal = info.minfo.normal;
+		float dist = info.minfo.dist;
+
+		if(hit) {
+			// cast shadow ray
+			vec3 dir = normalize(varLightPos - where);
+			Ray shadowRay = Ray(where, dir);
+			WInfo linfo;
+			if(!WorldIntersects(shadowRay, linfo)) {
+				// diffuse
+				float d = clamp(dot(dir, normal), 0.0, 1.0);
+				vec3 diff = info.color * d;
+
+				// specular
+				vec3 spec = vec3(0.0, 0.0, 0.0);
+				if(0.0 < d) {
+					vec3 s = normalize(dir + eye - where);
+					d = max(dot(s, normal), 0.0);
+					spec = pow(d, shininess) * specularColor;
+				}
+
+				float att = AttenuationFactor(dist,
+					uniLightConstantAttenuation,
+					uniLightLinearAttenuation,
+					uniLightQuadricAttenuation);
+				fragColor += falloff * att * (diff + spec);
+			}
+		} else { // miss
+			fragColor += vec3(0.0, 0.0, 0.0); // falloff * vec3(0.39215, 0.58431, 0.92941);
+			break;
+		}
+
+		// cast reflection ray
+		ray = Ray(where, reflect(ray.direction, normal));
+		falloff *= info.reflectivity;
+	}
+	return fragColor;
+}
+
+void main() {
+	Ray primary = Ray(varEyePos, normalize(varViewDir));
+	vec3 fragColor = CastPrimary(primary);
+
+	fragColor = clamp(fragColor, vec3(0.0, 0.0, 0.0), vec3(1.0, 1.0, 1.0));
+
+	gl_FragColor = vec4(fragColor, 1.0);
+}
